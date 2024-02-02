@@ -1,17 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Background Infinito</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      overflow: hidden;
+    }
+
+    .sliding-background {
+      background: url("./assets/imgs/background2.jpg") repeat;
+      height: 50vh;
+      width: 200%;
+      animation: slide 1s linear infinite;
+    }
+
+    .sliding-background:hover {
+      animation: slide linear;
+    }
+
+
+    @keyframes slide {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+
+      }
+    }
+
+    .coin {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      /* Ajuste conforme necessário */
+      /* background-image: url("./assets/coin/image1.png"); */
+    }
+  </style>
 </head>
+
 <body>
-  <input type="file" name="file" id="file">
-  <p>This is my firs Test</p>
-  <p>This is my Second Change</p>
-  <div class="myDiv">
-    <span>This is my New Change Commit "new change"</span>
+  <div class="container">
+    <div class="sliding-background"></div>
+    <div class="coin" id="coin"></div>
+
   </div>
-  <script src="data/js/main.js"></script>
+
+  <script>
+
+let idx = 1;
+
+function changeImage() {
+  const coins = document.getElementById("coin");
+  coins.style.background = `url(./assets/coin/image${idx}.png) no-repeat`;
+
+  
+  // Reset to 1 when it reaches 15
+  if (idx === 15) {
+    idx = 1;
+  } else {
+    idx++;
+  }
+}
+
+setInterval(changeImage, 500);
+
+ // Ajuste o intervalo conforme necessário
+  </script>
 </body>
+
 </html>
