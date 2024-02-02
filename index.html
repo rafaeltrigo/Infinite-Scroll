@@ -51,7 +51,7 @@
 <body>
   <div class="container">
     <div class="sliding-background"></div>
-    <div class="coin" id="coin"></div>
+    <!-- <div class="coin" id="coin"></div> -->
 
   </div>
 
@@ -63,7 +63,7 @@ function changeImage() {
   const coins = document.getElementById("coin");
   coins.style.background = `url(./assets/coin/image${idx}.png) no-repeat`;
 
-  
+
   // Reset to 1 when it reaches 15
   if (idx === 15) {
     idx = 1;
